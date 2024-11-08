@@ -78,7 +78,7 @@ if(!have_skill($skill[Flavour of Magic])){
 abort("You need Flavour of Magic to use this script");
 }
 
-if(numeric_modifier("Spell Damage Percent")<2000){
+if(numeric_modifier("Spell Damage Percent")<200){
 if(!(user_confirm("Your spell damage is under 200% modified. Are your spells strong enough to make scobo parts?"))){
 abort("Time to gear up to make super strong spells!");
 }
