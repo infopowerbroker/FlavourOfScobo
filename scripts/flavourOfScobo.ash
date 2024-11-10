@@ -51,13 +51,6 @@ void makeScoboParts(){
 		}
 	}
 	sort hobomagic by hobomagic[index].count;
-print("There are only " + hobomagic[0].count + " parts available so I'm going to cast " + hobomagic[0].flavour);
-print("Just so you know, there are already " + hobomagic[1].count + " parts parts made from " + hobomagic[1].flavour);
-print("Just so you know, there are already " + hobomagic[2].count + " parts parts made from " + hobomagic[2].flavour);
-print("Just so you know, there are already " + hobomagic[3].count + " parts parts made from " + hobomagic[3].flavour);
-print("Just so you know, there are already " + hobomagic[4].count + " parts parts made from " + hobomagic[4].flavour);
-print("also, it looks like someone beat up " + skins + " hobos the old fashioned way");
-
 
 if(skins < hobomagic[0].count){
 use_skill($skill[spirit of nothing]);
