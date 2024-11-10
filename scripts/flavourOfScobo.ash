@@ -83,6 +83,6 @@ if(!(user_confirm("Your spell damage is under 200% modified. Are your spells str
 abort("Time to gear up to make super strong spells!");
 }
 else{makeScoboParts();}
-}
+}else{makeScoboParts();}
 
 }
