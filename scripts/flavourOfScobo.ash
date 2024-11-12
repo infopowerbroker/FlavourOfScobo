@@ -1,6 +1,25 @@
 #flavourOfScobo.ash
+string combat_LTS(int round, monster opp, string text){
+return "skill Lunging Thrust-Smack";
+}
+
+void makeHoboSkin(){
+item brimstoneBludgeon= $item[Brimstone Bludgeon];
+
+if((!have_skill($skill[lunging thrust-smack]))||(item_amount(brimstoneBludgeon) + equipped_amount(brimstoneBludgeon) == 0)){
+abort("Please Make some Skins yourself");
+}
+
+cli_execute("outfit Hobo-Town-Skinmaker");
+
+adv1($location[Hobopolis Town Square], -1, "combat_LTS");
+
+}
+
 
 void makeScoboParts(){
+
+
 
 	string richard = visit_url("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3");
 
@@ -51,31 +70,50 @@ void makeScoboParts(){
 		}
 	}
 	sort hobomagic by hobomagic[index].count;
-
+if((hobomagic[0].count >=2) && (hobomagic[1].count >=2) && (hobomagic[2].count >=2) && (hobomagic[3].count >=2) && (hobomagic[4].count >=2) && (skins >=2)){
+    print("Launching a schobo!", "orange");
+    visit_url("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3&preaction=simulacrum&qty=1");
+}
 if(skins < hobomagic[0].count){
 use_skill($skill[spirit of nothing]);
 print("Our Palette has been clensed!");
-abort("Go ahead and make "+ hobomagic[0].count + " or more skins manually by beating things up.");
+makeHoboSkin();
+//abort("Go ahead and make "+ hobomagic[0].count + " or more skins manually by beating things up.");
 }
+
 else{
 use_skill(hobomagic[0].flavour);
 print("We're tasting the " + hobomagic[0].flavour);
+if(my_basestat($stat[mysticality]) <250){cli_execute("outfit Hobo-Town-Flavour-baby");}
+else{cli_execute("outfit Hobo-Town-Flavour");}
+adventure(1, $location[Hobopolis Town Square]);
 }
 
-adventure(5, $location[Hobopolis Town Square]);
+
 }
 
-void main() {
+void main(int turns) {
+
+int advBurned = 0;
+
+if (turns <= 0){
+abort("Please run FlavourOfScobo [# of turns] to instruct the Number of Adventures to use");
+}
 
 if(!have_skill($skill[Flavour of Magic])){
 abort("You need Flavour of Magic to use this script");
 }
 
-if(numeric_modifier("Spell Damage Percent")<200){
-if(!(user_confirm("Your spell damage is under 200% modified. Are your spells strong enough to make scobo parts?"))){
-abort("Time to gear up to make super strong spells!");
+//if(numeric_modifier("Spell Damage Percent")<200){
+//if(!(user_confirm("Your spell damage is under 200% modified. Are your spells strong enough to make scobo parts?"))){
+//abort("Time to gear up to make super strong spells!");
+//}
+//else{makeScoboParts();}
+//}
+while(advBurned < turns){
+
+makeScoboParts();
+advBurned++;
 }
-else{makeScoboParts();}
-}else{makeScoboParts();}
 
 }
