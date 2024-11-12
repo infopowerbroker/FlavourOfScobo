@@ -98,11 +98,19 @@ void main(int turns) {
 	print("Unable to find the right outfit. Please create a physical damage outfit to use with Lunging Thrust-Smack and name it 'Hobo-Town-Skinmaker'");
 	abort("Error: unable to find the corect outfit 'Hobo-Town-Skinmaker'");
 	}
-		//this will check to make sure the outfit is named correctly. IPB can change the script if needed.
-	if(!cli_execute("outfit Hobo-Town-Flavour")){
-	print("Error: unable to find the corect outfit 'Hobo-Town-Flavour'");
-	abort("Error: unable to find the corect outfit 'Hobo-Town-Flavour'");
-	}
+	//this will check to make sure the outfit is named correctly. IPB can change the script if needed.
+	if(my_basestat($stat[mysticality]) <250){
+		if(!cli_execute("outfit Hobo-Town-Flavour-baby")){
+		print("Error: unable to find the corect outfit. Please create a Spell damage outfit to use with Flavour of Magic and name it 'Hobo-Town-Flavour-baby'");
+		abort("Error: unable to find the corect outfit 'Hobo-Town-Flavour-baby'");
+		}
+		}
+	else{
+			if(!cli_execute("outfit Hobo-Town-Flavour")){
+			print("Error: unable to find the corect outfit. Please create a Spell damage outfit to use with Flavour of Magic and name it 'Hobo-Town-Flavour'");
+			abort("Error: unable to find the corect outfit 'Hobo-Town-Flavour'");
+			}
+		}
 
 
 int advBurned = 0;
