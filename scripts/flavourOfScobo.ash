@@ -6,7 +6,7 @@ return "skill Lunging Thrust-Smack";
 void makeHoboSkin(){
 item brimstoneBludgeon= $item[Brimstone Bludgeon];
 
-if((!have_skill($skill[lunging thrust-smack]))||(item_amount(brimstoneBludgeon) + equipped_amount(brimstoneBludgeon) == 0)){
+if(!have_skill($skill[lunging thrust-smack])){
 abort("Please Make some Skins yourself");
 }
 
@@ -93,6 +93,17 @@ adventure(1, $location[Hobopolis Town Square]);
 }
 
 void main(int turns) {
+	//this will check to make sure the outfit is named correctly. IPB can change the script if needed.
+	if(!cli_execute("outfit Hobo-Town-Skinmaker")){
+	print("Unable to find the right outfit. Please create a physical damage outfit to use with Lunging Thrust-Smack and name it 'Hobo-Town-Skinmaker'");
+	abort("Error: unable to find the corect outfit 'Hobo-Town-Skinmaker'");
+	}
+		//this will check to make sure the outfit is named correctly. IPB can change the script if needed.
+	if(!cli_execute("outfit Hobo-Town-Flavour")){
+	print("Error: unable to find the corect outfit 'Hobo-Town-Flavour'");
+	abort("Error: unable to find the corect outfit 'Hobo-Town-Flavour'");
+	}
+
 
 int advBurned = 0;
 
