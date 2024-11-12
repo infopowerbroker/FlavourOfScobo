@@ -12,8 +12,9 @@ It does not generate Hobo Skins - that physical damange must be done manually.
 
 What Prerequistes do I need?
 ----------------------------
-You MUST have the Flavour of Magic skill for this script to work.
+You MUST have the 'Flavour of Magic' skill and 'Lunging Thrust-Smack' skill for this script to work.
 You MUST have a CCS set that will properly over-kill the hobos to create parts
+You MUST have outfits named "Hobo-Town-Flavour" (spell damage) and "Hobo-Town-Skinmaker" (physical damage)
 You SHOULD have enough +Bonus Spell Damage in our outfit to ensure the CCS will over-kill the hobos
 
 I recommend Stuffed Mortar Shell + Extract Source Essence (or another minor skill/item that will not kill the hobo)
